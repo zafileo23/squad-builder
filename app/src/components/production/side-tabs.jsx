@@ -13,13 +13,12 @@ const SideTabs = () => {
       <TabsContent value="account" className="flex-grow">
         <div className="h-full"> {/* Ensures the card container fills the height */}
           <Card className="flex flex-col h-full"> {/* Flex layout to allow internal items to expand */}
-            <CardHeader className="flex-shrink-0">
-              <CardTitle>Card Title</CardTitle>
-            </CardHeader>
-            <CardContent className="flex-grow"> {/* Allows content to expand */}
-              <CardDescription>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-              </CardDescription>
+            <CardContent className="flex-grow py-4"> {/* Allows content to expand */}
+              <h3 className="text-lg font-semibold">Field</h3>
+              <h3 className="text-lg font-semibold">Formation</h3>
+              <h3 className="text-lg font-semibold">Icon Style</h3>
+              <h3 className="text-lg font-semibold">Icon Color</h3>
+              <h3 className="text-lg font-semibold">Optional Title</h3>
             </CardContent>
             <CardFooter className="flex-shrink-0">
               <a href="#" className="text-blue-500">Read More</a>
