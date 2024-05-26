@@ -7,12 +7,14 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
+  import TeamFormation from '@/components/production/formation'
   
   const Field = () => {
     return (
       <Card
       className="h-full"
       >
+        <TeamFormation />
       </Card>
     );
   };
