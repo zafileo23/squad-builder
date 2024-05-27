@@ -5,9 +5,8 @@ import { useTheme } from '@/contexts/tab-context';
 
 export const TeamFormation = () => {
     const { team } = useTeam();
-    const { theme, iconColor } = useTheme(); // Access both theme and iconColor from TabContext
+    const { theme, iconColor } = useTheme();
 
-    // Function to determine the text color based on iconColor
     const getPlayerTextColor = (iconColor) => {
         if (iconColor === "#fde100" || iconColor === "#ffffff") {
             return "black";
@@ -15,18 +14,19 @@ export const TeamFormation = () => {
         return "white";
     };
 
-    console.log('theme', theme);
-
-    // Function to determine player name text color based on the current theme
-    const getPlayerNameTextColor = () => {
-        // Check if the theme is 'light'
+    const getPlayerNameTextColor = (player) => {
+        if (!player.starter && theme.bgColor === "#ECEEED") {
+            return "rgba(0, 0, 0, 0.6)";
+        }
+        if (!player.starter) {
+            return "rgba(255, 255, 255, 0.6)";
+        }
         if (theme.bgColor === "#ECEEED") {
             return "black";
         }
         return "white";
     };
 
-    // Define the function inside the component
     const convertPosition = (playerPosition, maxFieldDimensions) => {
         return {
             x: (playerPosition.x / maxFieldDimensions.width) * 2670,
@@ -34,36 +34,29 @@ export const TeamFormation = () => {
         };
     };
 
-    // Example dimensions, adjust as necessary
-    const fieldWidth = 100; // maximum x value of player positions
-    const fieldHeight = 100; // maximum y value of player positions
-
     return (
         <div className="max-w-4xl mx-auto overflow-hidden">
             <FieldSVG>
                 {team.map(player => {
-                    console.log('Player Position:', player.position, player.x, player.y, player);  // Log the player's position
-                    const position = convertPosition({ x: player.x, y: player.y }, { width: fieldWidth, height: fieldHeight });
+                    console.log('Player Position:', player.position);
+
+                    const position = convertPosition({ x: player.x, y: player.y }, { width: 100, height: 100 });
                     return (
                         <g key={player.id} transform={`translate(${position.x}, ${position.y})`}>
                             {player.starter && (
                                 <>
-                                    {/* Outer white circle for visual emphasis */}
                                     <circle r="110" fill="white" />
-                                    {/* Main player circle */}
                                     <circle r="90" fill={iconColor} />
-                                    {/* Player number text with dynamic fill based on iconColor */}
                                     <text y="20" fontSize="65" textAnchor="middle" fill={getPlayerTextColor(iconColor)}>
                                         {player.number}
                                     </text>
                                 </>
                             )}
-                            {/* Player name text with dynamic fill based on theme */}
                             <text 
                               y="205" 
                               fontSize="80" 
                               textAnchor="middle"
-                              style={{ fontFamily: 'Inter, sans-serif', fontSize: '80px', fontWeight: '400', fill: getPlayerNameTextColor() }}
+                              style={{ fontFamily: 'Inter, sans-serif', fontSize: '80px', fontWeight: '400', fill: getPlayerNameTextColor(player) }}
                             > 
                               {player.name}
                             </text>

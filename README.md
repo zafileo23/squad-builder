@@ -34,7 +34,6 @@ Field
 
 - Backup rendering logic
     - Display on field
-        - Correct positioning
         - Different styling to differentiate backups
     - Support for 2 backup players in side tab
        - Not allow more than 2 backups
