@@ -5,6 +5,143 @@ const TeamContext = createContext();
 export const useTeam = () => useContext(TeamContext);
 
 export const TeamProvider = ({ children }) => {
+    const formations = {
+        "4-3-3": [
+            { positionId: 1, x: 50, y: 90 }, // Goalkeeper
+            { positionId: 3, x: 20, y: 70 }, // Left Back
+            { positionId: 5, x: 40, y: 70 }, // LCB
+            { positionId: 4, x: 60, y: 70 }, // RCB
+            { positionId: 2, x: 80, y: 70 }, // Right Back
+            { positionId: 10, x: 30, y: 50 }, // Center Midfielder
+            { positionId: 6, x: 50, y: 50 }, // Center Midfielder
+            { positionId: 8, x: 70, y: 50 }, // Center Midfielder
+            { positionId: 11, x: 30, y: 30 }, // Left Wing
+            { positionId: 9, x: 50, y: 30 }, // Striker
+            { positionId: 7, x: 70, y: 30 } // Right Wing
+        ],
+        "4-4-2": [
+            { positionId: 1, x: 50, y: 90 }, // Goalkeeper
+            { positionId: 3, x: 20, y: 70 }, // Left Back
+            { positionId: 5, x: 40, y: 70 }, // LCB
+            { positionId: 4, x: 60, y: 70 }, // RCB
+            { positionId: 2, x: 80, y: 70 }, // Right Back
+            { positionId: 11, x: 20, y: 50 }, // Left Midfielder
+            { positionId: 6, x: 40, y: 50 }, // Center Midfielder
+            { positionId: 8, x: 60, y: 50 }, // Center Midfielder
+            { positionId: 7, x: 80, y: 50 }, // Right Midfielder
+            { positionId: 10, x: 40, y: 30 }, // Second Striker
+            { positionId: 9, x: 60, y: 30 }, // Striker   
+        ],
+        "4-2-3-1": [
+            { positionId: 1, x: 50, y: 90 }, // Goalkeeper
+            { positionId: 3, x: 20, y: 70 }, // Left Back
+            { positionId: 5, x: 40, y: 70 }, // LCB
+            { positionId: 4, x: 60, y: 70 }, // RCB
+            { positionId: 2, x: 80, y: 70 }, // Right Back
+            { positionId: 6, x: 40, y: 55 }, // Center Midfielder
+            { positionId: 8, x: 60, y: 55 }, // Center Midfielder
+            { positionId: 11, x: 30, y: 35 }, // Left Midfielder
+            { positionId: 10, x: 50, y: 35 }, // Attacking Midfielder
+            { positionId: 7, x: 70, y: 35 }, // Right Midfielder
+            { positionId: 9, x: 50, y: 20 }, // Striker   
+        ],
+        "4-2-2-2": [
+            { positionId: 1, x: 50, y: 90 }, // Goalkeeper
+            { positionId: 3, x: 20, y: 70 }, // Left Back
+            { positionId: 5, x: 40, y: 70 }, // LCB
+            { positionId: 4, x: 60, y: 70 }, // RCB
+            { positionId: 2, x: 80, y: 70 }, // Right Back
+            { positionId: 6, x: 40, y: 55 }, // Center Midfielder
+            { positionId: 8, x: 60, y: 55 }, // Center Midfielder
+            { positionId: 11, x: 30, y: 35 }, // Left Midfielder
+            { positionId: 10, x: 50, y: 35 }, // Attacking Midfielder
+            { positionId: 7, x: 70, y: 35 }, // Right Midfielder
+            { positionId: 9, x: 50, y: 20 }, // Striker   
+        ],
+        "4-1-2-1-2": [
+            { positionId: 1, x: 50, y: 90 }, // Goalkeeper
+            { positionId: 3, x: 20, y: 70 }, // Left Back
+            { positionId: 5, x: 40, y: 70 }, // LCB
+            { positionId: 4, x: 60, y: 70 }, // RCB
+            { positionId: 2, x: 80, y: 70 }, // Right Back
+            { positionId: 6, x: 40, y: 55 }, // Center Midfielder
+            { positionId: 8, x: 60, y: 55 }, // Center Midfielder
+            { positionId: 11, x: 30, y: 35 }, // Left Midfielder
+            { positionId: 10, x: 50, y: 35 }, // Attacking Midfielder
+            { positionId: 7, x: 70, y: 35 }, // Right Midfielder
+            { positionId: 9, x: 50, y: 20 }, // Striker   
+        ],
+        "4-5-1": [
+            { positionId: 1, x: 50, y: 90 }, // Goalkeeper
+            { positionId: 3, x: 20, y: 70 }, // Left Back
+            { positionId: 5, x: 40, y: 70 }, // LCB
+            { positionId: 4, x: 60, y: 70 }, // RCB
+            { positionId: 2, x: 80, y: 70 }, // Right Back
+            { positionId: 6, x: 40, y: 55 }, // Center Midfielder
+            { positionId: 8, x: 60, y: 55 }, // Center Midfielder
+            { positionId: 11, x: 30, y: 35 }, // Left Midfielder
+            { positionId: 10, x: 50, y: 35 }, // Attacking Midfielder
+            { positionId: 7, x: 70, y: 35 }, // Right Midfielder
+            { positionId: 9, x: 50, y: 20 }, // Striker   
+        ],
+        "3-5-2": [
+            { positionId: 1, x: 50, y: 90 }, // Goalkeeper
+            { positionId: 3, x: 20, y: 70 }, // Left Back
+            { positionId: 5, x: 40, y: 70 }, // LCB
+            { positionId: 4, x: 60, y: 70 }, // RCB
+            { positionId: 2, x: 80, y: 70 }, // Right Back
+            { positionId: 6, x: 40, y: 55 }, // Center Midfielder
+            { positionId: 8, x: 60, y: 55 }, // Center Midfielder
+            { positionId: 11, x: 30, y: 35 }, // Left Midfielder
+            { positionId: 10, x: 50, y: 35 }, // Attacking Midfielder
+            { positionId: 7, x: 70, y: 35 }, // Right Midfielder
+            { positionId: 9, x: 50, y: 20 }, // Striker   
+        ],
+        "3-4-3": [
+            { positionId: 1, x: 50, y: 90 }, // Goalkeeper
+            { positionId: 3, x: 20, y: 70 }, // Left Back
+            { positionId: 5, x: 40, y: 70 }, // LCB
+            { positionId: 4, x: 60, y: 70 }, // RCB
+            { positionId: 2, x: 80, y: 70 }, // Right Back
+            { positionId: 6, x: 40, y: 55 }, // Center Midfielder
+            { positionId: 8, x: 60, y: 55 }, // Center Midfielder
+            { positionId: 11, x: 30, y: 35 }, // Left Midfielder
+            { positionId: 10, x: 50, y: 35 }, // Attacking Midfielder
+            { positionId: 7, x: 70, y: 35 }, // Right Midfielder
+            { positionId: 9, x: 50, y: 20 }, // Striker   
+        ],
+        "3-4-2-1": [
+            { positionId: 1, x: 50, y: 90 }, // Goalkeeper
+            { positionId: 3, x: 20, y: 70 }, // Left Back
+            { positionId: 5, x: 40, y: 70 }, // LCB
+            { positionId: 4, x: 60, y: 70 }, // RCB
+            { positionId: 2, x: 80, y: 70 }, // Right Back
+            { positionId: 6, x: 40, y: 55 }, // Center Midfielder
+            { positionId: 8, x: 60, y: 55 }, // Center Midfielder
+            { positionId: 11, x: 30, y: 35 }, // Left Midfielder
+            { positionId: 10, x: 50, y: 35 }, // Attacking Midfielder
+            { positionId: 7, x: 70, y: 35 }, // Right Midfielder
+            { positionId: 9, x: 50, y: 20 }, // Striker   
+        ],
+        "3-4-1-2": [
+            { positionId: 1, x: 50, y: 90 }, // Goalkeeper
+            { positionId: 3, x: 20, y: 70 }, // Left Back
+            { positionId: 5, x: 40, y: 70 }, // LCB
+            { positionId: 4, x: 60, y: 70 }, // RCB
+            { positionId: 2, x: 80, y: 70 }, // Right Back
+            { positionId: 6, x: 40, y: 55 }, // Center Midfielder
+            { positionId: 8, x: 60, y: 55 }, // Center Midfielder
+            { positionId: 11, x: 30, y: 35 }, // Left Midfielder
+            { positionId: 10, x: 50, y: 35 }, // Attacking Midfielder
+            { positionId: 7, x: 70, y: 35 }, // Right Midfielder
+            { positionId: 9, x: 50, y: 20 }, // Striker   
+        ],
+    };
+    
+    const defaultFormation = "4-3-3"; // Default formation   
+    
+    const [currentFormation, setCurrentFormation] = useState(defaultFormation);
+
     const [team, setTeam] = useState([
         { id: 1, positionId: 1, positionIndex: 1, number: 1, name: "Player 1", position: "Goalkeeper", x: 50, y: 90, starter: true },
         { id: 2, positionId: 3, positionIndex: 1, number: 3, name: "Player 3", position: "Left Back", x: 20, y: 70, starter: true },
@@ -54,9 +191,25 @@ export const TeamProvider = ({ children }) => {
         setTeam([...team, newPlayer]);
     };
 
+    const applyFormation = (formationName) => {
+        const formation = formations[formationName];
+        setTeam(currentTeam => currentTeam.map(player => ({
+            ...player,
+            ...formation.find(f => f.positionId === player.positionId) // Spread operator merges position data
+        })));
+        setCurrentFormation(formationName);
+    };
+
     return (
-        <TeamContext.Provider value={{ team, updatePlayerName, updatePlayerNumber, addBackupPlayer }}>
+        <TeamContext.Provider value={{ 
+            team, 
+            updatePlayerName, 
+            updatePlayerNumber, 
+            addBackupPlayer, 
+            applyFormation, 
+            currentFormation 
+        }}>
             {children}
         </TeamContext.Provider>
-    );
+    );    
 };
