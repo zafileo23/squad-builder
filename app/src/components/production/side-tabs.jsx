@@ -72,8 +72,10 @@ import { useTeam } from '@/contexts/team-context';
                     <SelectGroup>
                     <SelectLabel>Field Styles</SelectLabel>
                     <SelectItem value="default">Default</SelectItem>
-                    <SelectItem value="night">Night</SelectItem>
-                    <SelectItem value="beach">Beach</SelectItem>
+                    <SelectItem value="lightGreen">Light Green</SelectItem>
+                    <SelectItem value="darkGreen">Dark Green</SelectItem>
+                    <SelectItem value="light">Light</SelectItem>
+                    <SelectItem value="dark">Dark</SelectItem>
                     </SelectGroup>
                 </SelectContent>
               </Select>

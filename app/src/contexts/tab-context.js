@@ -2,8 +2,10 @@ import React, { createContext, useContext, useState } from 'react';
 
 const themes = {
     default: { bgColor: '#4b4', bgSecondColor: '#5c5', lineColor: '#efe' },
-    night: { bgColor: '#333', bgSecondColor: '#444', lineColor: '#ccc' },
-    beach: { bgColor: '#5DADE2', bgSecondColor: '#FAD7A0', lineColor: '#154360' },
+    lightGreen: { bgColor: '#5c5', bgSecondColor: '#5c5', lineColor: '#efe' },
+    darkGreen: { bgColor: '#4b4', bgSecondColor: '#4b4', lineColor: '#efe' },
+    light: { bgColor: '#ECEEED', bgSecondColor: '#ECEEED', lineColor: '#F6F6F4' },
+    dark: { bgColor: '#343332', bgSecondColor: '#343332', lineColor: '#454545' },
     // Add more themes as needed
 };
 

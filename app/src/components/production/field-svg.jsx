@@ -13,6 +13,7 @@ export const FieldSVG = ({ children }) => {
                     <rect x="1" height="2" width="1" fill={bgSecondColor}/>
                 </pattern>
             </defs>
+            <rect width="2670" height="3690" fill={bgColor} />
             <rect width="2670" fill="url(#fieldPattern)" rx="40" height="3690"/>
             <g stroke={lineColor} strokeWidth="11" fill="none">
                 <path d="m106.7 1845h2456m-2456 1641v-3282l2456 .3v3282z"/>
