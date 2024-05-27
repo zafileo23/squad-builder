@@ -115,64 +115,58 @@ import { useTeam } from '@/contexts/team-context';
       <TabsContent value="players" className="flex-grow">
         <div className="h-full"> {/* Ensures the card container fills the height */}
             <Card className="flex flex-col h-full"> {/* Flex layout to allow internal items to expand */}
-                <CardContent className="flex-grow overflow-auto py-4">
-                    <table className="min-w-full divide-y divide-gray-200">
-                        <thead className="bg-gray-50">
-                            <tr>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Position
-                                </th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Number
-                                </th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Name
-                                </th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                </th>
+            <CardContent className="flex-grow overflow-auto py-4">
+                <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                        <tr>
+                            <th scope="col" className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1-6">
+                                Number
+                            </th>
+                            <th scope="col" className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1-6">
+                                Position
+                            </th>
+                            <th scope="col" className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">
+                                Name
+                            </th>
+                            <th scope="col" className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">
+                                {/* This header is left empty to match the button column */}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                        {sortedTeam.map((player, index, array) => (
+                            <tr key={player.id}>
+                                <td className="w-1/12 px-3 py-1 whitespace-nowrap text-xs font-medium text-gray-900">
+                                    {player.number}
+                                </td>
+                                <td className="w-1/12 px-3 py-1 whitespace-nowrap text-xs text-gray-500">
+                                    {player.position}
+                                </td>
+                                <td className="w-1/2 px-3 py-1 whitespace-nowrap text-xs text-gray-500">
+                                    <input
+                                        id={`player-name-${player.id}`}
+                                        type="text"
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-xs"
+                                        value={player.name}
+                                        onChange={(e) => updatePlayerName(player.id, e.target.value)}
+                                        placeholder="Enter player name"
+                                    />
+                                </td>
+                                <td className="w-4/12 text-right px-3 py-1">
+                                    {player.positionIndex === highestIndexes[player.positionId] && (
+                                        <Button
+                                            variant="secondary"
+                                            className="text-xs"
+                                            onClick={() => addBackupPlayer(player.positionId)}>
+                                            + Add backup
+                                        </Button>
+                                    )}
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody className="bg-white divide-y divide-gray-200">
-                            {sortedTeam.map((player, index, array) => (
-                                <tr key={player.id}>
-                                    <td className="px-6 py-1 whitespace-nowrap text-xs font-medium text-gray-900">
-                                        {player.position}
-                                    </td>
-                                    <td className="px-6 py-1 whitespace-nowrap text-xs text-gray-500">
-                                        <input
-                                            id={`player-number-${player.id}`}
-                                            type="number"
-                                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-xs"
-                                            value={player.number}
-                                            onChange={(e) => updatePlayerNumber(player.id, e.target.value)}
-                                            placeholder="Enter player number"
-                                        />
-                                    </td>
-                                    <td className="px-6 py-1 whitespace-nowrap text-xs text-gray-500">
-                                        <input
-                                            id={`player-name-${player.id}`}
-                                            type="text"
-                                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-xs"
-                                            value={player.name}
-                                            onChange={(e) => updatePlayerName(player.id, e.target.value)}
-                                            placeholder="Enter player name"
-                                        />
-                                    </td>
-                                    <td className="text-right px-6 py-1">
-                                        {player.positionIndex === highestIndexes[player.positionId] && (
-                                            <Button
-                                                variant="secondary"
-                                                className="text-xs"
-                                                onClick={() => addBackupPlayer(player.positionId)}>
-                                                + Add backup
-                                            </Button>
-                                        )}
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </CardContent>
+                        ))}
+                    </tbody>
+                </table>
+              </CardContent>
             </Card>
         </div>
       </TabsContent>
