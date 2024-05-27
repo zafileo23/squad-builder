@@ -92,13 +92,9 @@ import { useTheme } from '@/contexts/tab-context';
                     </SelectGroup>
                 </SelectContent>
               </Select>
-              <h3 className="text-lg font-semibold">Icon Style</h3>
               <h3 className="text-lg font-semibold">Icon Color</h3>
               <h3 className="text-lg font-semibold">Optional Title</h3>
             </CardContent>
-            <CardFooter className="flex-shrink-0">
-              <a href="#" className="text-blue-500">Read More</a>
-            </CardFooter>
           </Card>
         </div>
       </TabsContent>
