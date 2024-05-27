@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import { useTeam } from '@/contexts/team-context';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import {
@@ -11,7 +10,9 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
+import { CirclePicker } from 'react-color';
 import { useTheme } from '@/contexts/tab-context';
+import { useTeam } from '@/contexts/team-context';
 
   const SideTabs = () => {
   const { changeTheme } = useTheme();
@@ -19,6 +20,12 @@ import { useTheme } from '@/contexts/tab-context';
   const [selectedTheme, setSelectedTheme] = useState('default');
   const { applyFormation } = useTeam();
   const [selectedFormation, setSelectedFormation] = React.useState("4-3-3");
+  const { changeIconColor, iconColor } = useTheme();
+
+  const handleColorChange = (color) => {
+    changeIconColor(color.hex); // update the icon color in the context
+    setPickerVisible(false); // hide picker after selection
+  };
 
   const handleThemeChange = (value) => {
     setSelectedTheme(value); // Update the local state
@@ -71,7 +78,7 @@ import { useTheme } from '@/contexts/tab-context';
                     </SelectGroup>
                 </SelectContent>
               </Select>
-              <h3 className="text-lg font-semibold">Formation</h3>
+              <h3 className="text-lg font-semibold pt-4">Formation</h3>
               <Select value={selectedFormation} onValueChange={handleFormationChange} defaultValue="4-3-3">
                 <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Select a formation" />
@@ -92,8 +99,12 @@ import { useTheme } from '@/contexts/tab-context';
                     </SelectGroup>
                 </SelectContent>
               </Select>
-              <h3 className="text-lg font-semibold">Icon Color</h3>
-              <h3 className="text-lg font-semibold">Optional Title</h3>
+              <h3 className="text-lg font-semibold pt-4">Icon Color</h3>
+              <CirclePicker 
+                color={iconColor}
+                colors={['#000000']}
+                onChangeComplete={handleColorChange} 
+              />
             </CardContent>
           </Card>
         </div>

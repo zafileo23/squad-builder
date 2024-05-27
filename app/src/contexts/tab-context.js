@@ -13,13 +13,18 @@ export const useTheme = () => useContext(TabContext);
 
 export const TabProvider = ({ children }) => {
     const [theme, setTheme] = useState(themes.default);
+    const [iconColor, setIconColor] = useState('#034694');
 
     const changeTheme = (themeName) => {
         setTheme(themes[themeName]);
     };
 
+    const changeIconColor = (color) => {
+        setIconColor(color);
+    };
+
     return (
-        <TabContext.Provider value={{ theme, changeTheme }}>
+        <TabContext.Provider value={{ theme, changeTheme, iconColor, changeIconColor }}>
             {children}
         </TabContext.Provider>
     );
