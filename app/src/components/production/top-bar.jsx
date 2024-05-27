@@ -1,8 +1,11 @@
 import React from 'react';
 import { Button } from '../ui/button';
+import { useTheme } from '@/contexts/tab-context';
 
 
-const TopBar = () => {
+export const TopBar = () => {
+  const { downloadSvgAsPng } = useTheme();
+
   return (
     <div className="border-b">
       <div className="px-4">
@@ -16,7 +19,7 @@ const TopBar = () => {
           {/* Right section for settings etc */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-                <Button>Share</Button>  
+                <Button onClick={downloadSvgAsPng}>Download</Button>  
             </div>
           </div>
         </div>

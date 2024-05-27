@@ -32,11 +32,6 @@ Field
 
 ## todo
 
-- Backup rendering logic
-    - Support for 2 backup players in side tab
-       - Not allow more than 2 backups
-       - + and - for backups
-
 - Build formation screenshotting logic
     - Find library for converting svg to png
     - Download as PNG
