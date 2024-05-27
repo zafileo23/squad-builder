@@ -4,7 +4,7 @@ const themes = {
     default: { bgColor: '#4b4', bgSecondColor: '#5c5', lineColor: '#efe' },
     lightGreen: { bgColor: '#5c5', bgSecondColor: '#5c5', lineColor: '#efe' },
     darkGreen: { bgColor: '#4b4', bgSecondColor: '#4b4', lineColor: '#efe' },
-    light: { bgColor: '#ECEEED', bgSecondColor: '#ECEEED', lineColor: '#F6F6F4' },
+    light: { bgColor: '#CBD2D3', bgSecondColor: '#CBD2D3', lineColor: '#F6F6F4' },
     dark: { bgColor: '#343332', bgSecondColor: '#343332', lineColor: '#454545' },
     // Add more themes as needed
 };

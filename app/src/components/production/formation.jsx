@@ -15,13 +15,13 @@ export const TeamFormation = () => {
     };
 
     const getPlayerNameTextColor = (player) => {
-        if (!player.starter && theme.bgColor === "#ECEEED") {
+        if (!player.starter && theme.bgColor === "#CBD2D3") {
             return "rgba(0, 0, 0, 0.6)";
         }
         if (!player.starter) {
             return "rgba(255, 255, 255, 0.6)";
         }
-        if (theme.bgColor === "#ECEEED") {
+        if (theme.bgColor === "#CBD2D3") {
             return "black";
         }
         return "white";
@@ -38,8 +38,6 @@ export const TeamFormation = () => {
         <div className="max-w-4xl mx-auto overflow-hidden">
             <FieldSVG>
                 {team.map(player => {
-                    console.log('Player Position:', player.position);
-
                     const position = convertPosition({ x: player.x, y: player.y }, { width: 100, height: 100 });
                     return (
                         <g key={player.id} transform={`translate(${position.x}, ${position.y})`}>

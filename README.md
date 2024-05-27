@@ -33,8 +33,6 @@ Field
 ## todo
 
 - Backup rendering logic
-    - Display on field
-        - Different styling to differentiate backups
     - Support for 2 backup players in side tab
        - Not allow more than 2 backups
        - + and - for backups
