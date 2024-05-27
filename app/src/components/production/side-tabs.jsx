@@ -1,10 +1,29 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTeam } from '@/contexts/team-context';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
+import { useTheme } from '@/contexts/tab-context';
 
-const SideTabs = () => {
+  const SideTabs = () => {
+  const { changeTheme } = useTheme();
   const { team, updatePlayerName, updatePlayerNumber, addBackupPlayer } = useTeam();
+
+  // State to hold the selected theme
+  const [selectedTheme, setSelectedTheme] = useState('default');
+
+  const handleThemeChange = (value) => {
+    setSelectedTheme(value); // Update the local state
+    changeTheme(value); // Call the context method to apply the theme
+  };
 
   const highestIndexes = useMemo(() => {
     const indexes = {};
@@ -34,6 +53,19 @@ const SideTabs = () => {
           <Card className="flex flex-col h-full"> {/* Flex layout to allow internal items to expand */}
             <CardContent className="flex-grow py-4"> {/* Allows content to expand */}
               <h3 className="text-lg font-semibold">Field</h3>
+              <Select value={selectedTheme} onValueChange={handleThemeChange} defaultValue="default">
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Select a theme" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectGroup>
+                    <SelectLabel>Field Styles</SelectLabel>
+                    <SelectItem value="default">Default</SelectItem>
+                    <SelectItem value="night">Night</SelectItem>
+                    <SelectItem value="beach">Beach</SelectItem>
+                    </SelectGroup>
+                </SelectContent>
+              </Select>
               <h3 className="text-lg font-semibold">Formation</h3>
               <h3 className="text-lg font-semibold">Icon Style</h3>
               <h3 className="text-lg font-semibold">Icon Color</h3>

@@ -1,6 +1,10 @@
 import React from 'react';
+import { useTheme } from '@/contexts/tab-context';
 
-export const FieldSVG = ({ bgColor = '#4b4', bgSecondColor = '#5c5', lineColor = '#efe', children }) => {
+export const FieldSVG = ({ children }) => {
+    const { theme } = useTheme();
+    const { bgColor, bgSecondColor, lineColor } = theme;
+
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2670 3690" className="w-3/4 h-auto">
             <defs>
