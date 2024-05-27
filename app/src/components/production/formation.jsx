@@ -5,16 +5,14 @@ import { useTheme } from '@/contexts/tab-context';
 
 export const TeamFormation = () => {
     const { team } = useTeam();
-    const { iconColor } = useTheme(); // Access the iconColor from TabContext
+    const { iconColor } = useTheme();
 
     // Function to determine the text color based on iconColor
     const getPlayerTextColor = (iconColor) => {
-        console.log(iconColor);
-        // Check if the iconColor is one of the specified colors that require black text
-        if (iconColor === '#FDE100' || iconColor === '#FFFFFF') {
-            return "red";
+        if (iconColor === "#fde100" || iconColor === "#ffffff") {
+            return "black";
         }
-        return "black";
+        return "white";
     };
 
     // Define the function inside the component
