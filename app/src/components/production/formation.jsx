@@ -19,7 +19,6 @@ export const TeamFormation = () => {
 
     // Function to determine player name text color based on the current theme
     const getPlayerNameTextColor = () => {
-        console.log('checking theme', theme);
         // Check if the theme is 'light'
         if (theme.bgColor === "#ECEEED") {
             return "black";
@@ -43,6 +42,7 @@ export const TeamFormation = () => {
         <div className="max-w-4xl mx-auto overflow-hidden">
             <FieldSVG>
                 {team.map(player => {
+                    console.log('Player Position:', player.position, player.x, player.y, player);  // Log the player's position
                     const position = convertPosition({ x: player.x, y: player.y }, { width: fieldWidth, height: fieldHeight });
                     return (
                         <g key={player.id} transform={`translate(${position.x}, ${position.y})`}>
@@ -63,7 +63,7 @@ export const TeamFormation = () => {
                               y="205" 
                               fontSize="80" 
                               textAnchor="middle"
-                              style={{ fontFamily: 'Inter, sans-serif', fontSize: '80px', fontWeight: '300', fill: getPlayerNameTextColor() }}
+                              style={{ fontFamily: 'Inter, sans-serif', fontSize: '80px', fontWeight: '400', fill: getPlayerNameTextColor() }}
                             > 
                               {player.name}
                             </text>

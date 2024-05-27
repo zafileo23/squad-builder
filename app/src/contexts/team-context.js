@@ -185,7 +185,7 @@ export const TeamProvider = ({ children }) => {
             name: '',
             position: `${positionName} #${newPositionIndex}`,
             x: positionPlayers[0].x, // Optionally adjust coordinates
-            y: positionPlayers[0].y + 1 * newPositionIndex, // Adjust Y to space out backup
+            y: positionPlayers[0].y + 2.5 * (newPositionIndex - 1), // Correctly adjust Y to space out backup
             starter: false
         };
         setTeam([...team, newPlayer]);
