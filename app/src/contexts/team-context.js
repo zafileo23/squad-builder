@@ -7,7 +7,7 @@ export const useTeam = () => useContext(TeamContext);
 export const TeamProvider = ({ children }) => {
     const formations = {
         "4-3-3": [
-            { positionId: 1, x: 50, y: 90, position: "GK" }, // Goalkeeper
+            { positionId: 1, x: 50, y: 84, position: "GK" }, // Goalkeeper
             { positionId: 3, x: 20, y: 70, position: "LB" }, // Left Back
             { positionId: 5, x: 40, y: 70, position: "LCB" }, // LCB
             { positionId: 4, x: 60, y: 70, position: "RCB" }, // RCB
@@ -20,7 +20,7 @@ export const TeamProvider = ({ children }) => {
             { positionId: 7, x: 70, y: 30, position: "RW" } // Right Wing
         ],
         "4-4-2": [
-            { positionId: 1, x: 50, y: 90, position: "GK" }, // Goalkeeper
+            { positionId: 1, x: 50, y: 84, position: "GK" }, // Goalkeeper
             { positionId: 3, x: 20, y: 70, position: "LB" }, // Left Back
             { positionId: 5, x: 40, y: 70, position: "LCB" }, // LCB
             { positionId: 4, x: 60, y: 70, position: "CB" }, // RCB
@@ -33,7 +33,7 @@ export const TeamProvider = ({ children }) => {
             { positionId: 9, x: 60, y: 30, position: "ST" }, // Striker   
         ],
         "4-2-3-1": [
-            { positionId: 1, x: 50, y: 90, position: "GK" }, // Goalkeeper
+            { positionId: 1, x: 50, y: 84, position: "GK" }, // Goalkeeper
             { positionId: 3, x: 20, y: 70, position: "LB" }, // Left Back
             { positionId: 5, x: 40, y: 70, position: "LCB" }, // LCB
             { positionId: 4, x: 60, y: 70, position: "RCB" }, // RCB
@@ -46,7 +46,7 @@ export const TeamProvider = ({ children }) => {
             { positionId: 9, x: 50, y: 20, position: "ST" }, // Striker   
         ],
         "4-2-2-2": [
-            { positionId: 1, x: 50, y: 90, position: "GK" }, // Goalkeeper
+            { positionId: 1, x: 50, y: 84, position: "GK" }, // Goalkeeper
             { positionId: 3, x: 20, y: 70, position: "LB" }, // Left Back
             { positionId: 5, x: 40, y: 70, position: "LCB" }, // LCB
             { positionId: 4, x: 60, y: 70, position: "RCB" }, // RCB
@@ -59,7 +59,7 @@ export const TeamProvider = ({ children }) => {
             { positionId: 9, x: 60, y: 30, position: "ST" }, // Forward   
         ],
         "4-1-2-1-2": [
-            { positionId: 1, x: 50, y: 90, position: "GK" },
+            { positionId: 1, x: 50, y: 84, position: "GK" }, // Goalkeeper
             { positionId: 3, x: 20, y: 70, position: "LB" },
             { positionId: 5, x: 40, y: 70, position: "LCB" },
             { positionId: 4, x: 60, y: 70, position: "RCB" },
@@ -72,7 +72,7 @@ export const TeamProvider = ({ children }) => {
             { positionId: 7, x: 60, y: 20, position: "ST" }
         ],
         "4-5-1": [
-            { positionId: 1, x: 50, y: 90, position: "GK" },
+            { positionId: 1, x: 50, y: 84, position: "GK" }, // Goalkeeper
             { positionId: 3, x: 20, y: 70, position: "LB" },
             { positionId: 5, x: 40, y: 70, position: "LCB" },
             { positionId: 4, x: 60, y: 70, position: "RCB" },
@@ -85,7 +85,7 @@ export const TeamProvider = ({ children }) => {
             { positionId: 9, x: 50, y: 30, position: "ST" },
         ],
         "3-5-2": [
-            { positionId: 1, x: 50, y: 90, position: "GK" }, // Goalkeeper
+            { positionId: 1, x: 50, y: 84, position: "GK" }, // Goalkeeper
             { positionId: 3, x: 15, y: 55, position: "LWB"  }, // Left Wing Back
             { positionId: 5, x: 30, y: 70, position: "LCB"  }, // LCB
             { positionId: 4, x: 50, y: 70, position: "CCB"  }, // CCB
@@ -98,7 +98,7 @@ export const TeamProvider = ({ children }) => {
             { positionId: 11, x: 60, y: 30, position: "ST"  }, // Forward
         ],
         "3-4-3": [
-            { positionId: 1, x: 50, y: 90, position: "GK" }, // Goalkeeper
+            { positionId: 1, x: 50, y: 84, position: "GK" }, // Goalkeeper
             { positionId: 3, x: 20, y: 50, position: "LWB"  }, // Left Wing Back
             { positionId: 5, x: 30, y: 70, position: "LCB"  }, // LCB
             { positionId: 4, x: 50, y: 70, position: "CCB"  }, // CCB
@@ -111,7 +111,7 @@ export const TeamProvider = ({ children }) => {
             { positionId: 11, x: 70, y: 30, position: "RW"  }, // Right Wing
         ],
         "3-4-2-1": [
-            { positionId: 1, x: 50, y: 90, position: "GK" }, // Goalkeeper
+            { positionId: 1, x: 50, y: 84, position: "GK" }, // Goalkeeper
             { positionId: 3, x: 20, y: 50, position: "LWB"  }, // Left Wing Back
             { positionId: 5, x: 30, y: 70, position: "LCB"  }, // LCB
             { positionId: 4, x: 50, y: 70, position: "CCB"  }, // CCB
@@ -124,7 +124,7 @@ export const TeamProvider = ({ children }) => {
             { positionId: 9, x: 50, y: 25, position: "ST"  }, // Forward   
         ],
         "3-4-1-2": [
-            { positionId: 1, x: 50, y: 90, position: "GK" }, // Goalkeeper
+            { positionId: 1, x: 50, y: 84, position: "GK" }, // Goalkeeper
             { positionId: 3, x: 20, y: 50, position: "LWB"  }, // Left Wing Back
             { positionId: 5, x: 30, y: 70, position: "LCB"  }, // LCB
             { positionId: 4, x: 50, y: 70, position: "CCB"  }, // CCB
@@ -143,7 +143,7 @@ export const TeamProvider = ({ children }) => {
     const [currentFormation, setCurrentFormation] = useState(defaultFormation);
 
     const [team, setTeam] = useState([
-        { id: 1, positionId: 1, positionIndex: 1, number: 1, name: "Player 1", position: "GK", x: 50, y: 90, starter: true },
+        { id: 1, positionId: 1, positionIndex: 1, number: 1, name: "Player 1", position: "GK", x: 50, y: 84, starter: true },
         { id: 2, positionId: 3, positionIndex: 1, number: 3, name: "Player 3", position: "LB", x: 20, y: 70, starter: true },
         { id: 3, positionId: 5, positionIndex: 1, number: 5, name: "Player 5", position: "LCB", x: 40, y: 70, starter: true },
         { id: 4, positionId: 4, positionIndex: 1, number: 4, name: "Player 4", position: "RCB", x: 60, y: 70, starter: true },
