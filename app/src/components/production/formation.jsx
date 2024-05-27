@@ -7,6 +7,16 @@ export const TeamFormation = () => {
     const { team } = useTeam();
     const { iconColor } = useTheme(); // Access the iconColor from TabContext
 
+    // Function to determine the text color based on iconColor
+    const getPlayerTextColor = (iconColor) => {
+        console.log(iconColor);
+        // Check if the iconColor is one of the specified colors that require black text
+        if (iconColor === '#FDE100' || iconColor === '#FFFFFF') {
+            return "red";
+        }
+        return "black";
+    };
+
     // Define the function inside the component
     const convertPosition = (playerPosition, maxFieldDimensions) => {
         return {
@@ -31,9 +41,9 @@ export const TeamFormation = () => {
                                     {/* Outer white circle for visual emphasis */}
                                     <circle r="110" fill="white" />
                                     {/* Main player circle */}
-                                    <circle r="90" fill={iconColor}/>
-                                    {/* Player number text */}
-                                    <text y="20" fontSize="65" textAnchor="middle" fill="white">
+                                    <circle r="90" fill={iconColor} />
+                                    {/* Player number text with dynamic fill based on iconColor */}
+                                    <text y="20" fontSize="65" textAnchor="middle" fill={getPlayerTextColor(iconColor)}>
                                         {player.number}
                                     </text>
                                 </>

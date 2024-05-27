@@ -102,7 +102,7 @@ import { useTeam } from '@/contexts/team-context';
               <CirclePicker 
                 className='bg-zinc-100 rounded-lg pt-4 pl-6'
                 color={iconColor}
-                colors={['#034694', '#0693E3', '#6CABDD', '#A50044', '#EF0107', '#FF8E91', '#FF6900', '#FDE100', '#9C824A', '#7BDCB5', '#00D084', '#000000', '#ABB8C3', '#FFFFFF']}
+                colors={['#034694', '#0693E3', '#6CABDD', '#A50044', '#EF0107', '#FF8E91', '#FF6900', '#FDE100', '#9C824A', '#018749', '#00D084', '#000000', '#ABB8C3', '#FFFFFF']}
                 onChangeComplete={handleColorChange} 
               />
             </CardContent>
@@ -177,16 +177,13 @@ import { useTeam } from '@/contexts/team-context';
       <div className="h-full"> {/* Ensures the card container fills the height */}
           <Card className="flex flex-col h-full"> {/* Flex layout to allow internal items to expand */}
             <CardHeader className="flex-shrink-0">
-              <CardTitle>Card Title</CardTitle>
+              <CardTitle>Coming soon!</CardTitle>
             </CardHeader>
             <CardContent className="flex-grow"> {/* Allows content to expand */}
               <CardDescription>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                We're currently working on giving you the ability to save and load your favorite lineups here.
               </CardDescription>
             </CardContent>
-            <CardFooter className="flex-shrink-0">
-              <a href="#" className="text-blue-500">Read More</a>
-            </CardFooter>
           </Card>
         </div>
       </TabsContent>
