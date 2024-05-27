@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import {
     Select,
     SelectContent,
@@ -159,11 +160,12 @@ import { useTeam } from '@/contexts/team-context';
                                     </td>
                                     <td className="text-right px-6 py-1">
                                         {player.positionIndex === highestIndexes[player.positionId] && (
-                                            <button
-                                                className="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
+                                            <Button
+                                                variant="secondary"
+                                                className="text-xs"
                                                 onClick={() => addBackupPlayer(player.positionId)}>
                                                 + Add backup
-                                            </button>
+                                            </Button>
                                         )}
                                     </td>
                                 </tr>
