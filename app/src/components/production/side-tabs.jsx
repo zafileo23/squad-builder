@@ -17,7 +17,7 @@ import { useTeam } from '@/contexts/team-context';
 
   const SideTabs = () => {
   const { changeTheme } = useTheme();
-  const { team, updatePlayerName, updatePlayerNumber, addBackupPlayer } = useTeam();
+  const { team, updatePlayerName, updatePlayerNumber, addBackupPlayer, removePlayer } = useTeam();
   const [selectedTheme, setSelectedTheme] = useState('default');
   const { applyFormation } = useTeam();
   const [selectedFormation, setSelectedFormation] = React.useState("4-3-3");
@@ -51,10 +51,6 @@ import { useTeam } from '@/contexts/team-context';
   const sortedTeam = useMemo(() => {
     return [...team].sort((a, b) => a.positionId - b.positionId || a.positionIndex - b.positionIndex);
   }, [team]);
-
-  const removePlayer = (playerId) => {
-    setTeam(currentTeam => currentTeam.filter(player => player.id !== playerId));
-};
 
 
   return (
@@ -176,7 +172,7 @@ import { useTeam } from '@/contexts/team-context';
                                                         +
                                                     </Button>
                                                     <Button
-                                                        variant="destructive"
+                                                        variant="danger"
                                                         className="text-xs bg-red-500"
                                                         onClick={() => removePlayer(player.id)}>
                                                         -
@@ -185,7 +181,7 @@ import { useTeam } from '@/contexts/team-context';
                                             )}
                                             {player.positionIndex === 3 && (
                                                 <Button
-                                                    variant="destructive"
+                                                    variant="danger"
                                                     className="text-xs bg-red-500"
                                                     onClick={() => removePlayer(player.id)}>
                                                     -

@@ -172,6 +172,10 @@ export const TeamProvider = ({ children }) => {
         );
     };
 
+    const removePlayer = (playerId) => {
+        setTeam(currentTeam => currentTeam.filter(player => player.id !== playerId));
+    };    
+
     const addBackupPlayer = (positionId) => {
         const positionPlayers = team.filter(player => player.positionId === positionId);
         const newPositionIndex = positionPlayers.length + 1;
@@ -206,6 +210,7 @@ export const TeamProvider = ({ children }) => {
             updatePlayerName, 
             updatePlayerNumber, 
             addBackupPlayer, 
+            removePlayer,
             applyFormation, 
             currentFormation 
         }}>
