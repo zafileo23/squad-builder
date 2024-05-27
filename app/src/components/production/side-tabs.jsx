@@ -85,8 +85,8 @@ import { useTheme } from '@/contexts/tab-context';
                         <SelectItem value="4-2-2-2">4-2-2-2</SelectItem>
                         <SelectItem value="4-1-2-1-2">4-1-2-1-2</SelectItem>
                         <SelectItem value="4-5-1">4-5-1</SelectItem>
-                        <SelectItem value="3-5-2">3-5-1</SelectItem>
-                        <SelectItem value="3-4-2">3-4-3</SelectItem>
+                        <SelectItem value="3-5-2">3-5-2</SelectItem>
+                        <SelectItem value="3-4-3">3-4-3</SelectItem>
                         <SelectItem value="3-4-2-1">3-4-2-1</SelectItem>
                         <SelectItem value="3-4-1-2">3-4-1-2</SelectItem>
                     </SelectGroup>
