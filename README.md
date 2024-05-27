@@ -53,3 +53,14 @@ Field
     - Last second CSS touchups
 
 - Host on Vercel for free
+
+- Future:
+    - Saving session state locally
+    - Editable lineup name
+    - Saving lineups locally
+    - Drag and drop players
+    - Draw arrows and place ball to show plays
+    - Different icons (solid circle, jersey)
+    - Optional title
+    - Additional themes
+    - Connecting to soccer player database API to pull in teams
