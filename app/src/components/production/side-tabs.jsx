@@ -47,12 +47,61 @@ import { useTheme } from '@/contexts/tab-context';
 
 
   return (
-    <Tabs defaultValue="players" className="flex flex-col h-full">
+    <Tabs defaultValue="style" className="flex flex-col h-full">
       <TabsList className="flex-shrink-0"> {/* Prevents the tabs list from growing */}
-        <TabsTrigger value="players">Players</TabsTrigger>
         <TabsTrigger value="style">Style</TabsTrigger>
+        <TabsTrigger value="players">Players</TabsTrigger>
         <TabsTrigger value="lineups">My Lineups</TabsTrigger>
       </TabsList>
+      <TabsContent value="style" className="flex-grow">
+        <div className="h-full"> {/* Ensures the card container fills the height */}
+          <Card className="flex flex-col h-full"> {/* Flex layout to allow internal items to expand */}
+            <CardContent className="flex-grow py-4"> {/* Allows content to expand */}
+              <h3 className="text-lg font-semibold">Field</h3>
+              <Select value={selectedTheme} onValueChange={handleThemeChange} defaultValue="default">
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Select a theme" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectGroup>
+                    <SelectLabel>Field Styles</SelectLabel>
+                    <SelectItem value="default">Default</SelectItem>
+                    <SelectItem value="night">Night</SelectItem>
+                    <SelectItem value="beach">Beach</SelectItem>
+                    </SelectGroup>
+                </SelectContent>
+              </Select>
+              <h3 className="text-lg font-semibold">Formation</h3>
+              <Select value={selectedFormation} onValueChange={handleFormationChange} defaultValue="4-3-3">
+                <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Select a formation" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectGroup>
+                        <SelectLabel>Formations</SelectLabel>
+                        <SelectItem value="4-3-3">4-3-3</SelectItem>
+                        <SelectItem value="4-4-2">4-4-2</SelectItem>
+                        <SelectItem value="4-2-3-1">4-2-3-1</SelectItem>
+                        <SelectItem value="4-2-2-2">4-2-2-2</SelectItem>
+                        <SelectItem value="4-1-2-1-2">4-1-2-1-2</SelectItem>
+                        <SelectItem value="4-5-1">4-5-1</SelectItem>
+                        <SelectItem value="3-5-2">3-5-1</SelectItem>
+                        <SelectItem value="3-4-2">3-4-3</SelectItem>
+                        <SelectItem value="3-4-2-1">3-4-2-1</SelectItem>
+                        <SelectItem value="3-4-1-2">3-4-1-2</SelectItem>
+                    </SelectGroup>
+                </SelectContent>
+              </Select>
+              <h3 className="text-lg font-semibold">Icon Style</h3>
+              <h3 className="text-lg font-semibold">Icon Color</h3>
+              <h3 className="text-lg font-semibold">Optional Title</h3>
+            </CardContent>
+            <CardFooter className="flex-shrink-0">
+              <a href="#" className="text-blue-500">Read More</a>
+            </CardFooter>
+          </Card>
+        </div>
+      </TabsContent>
       <TabsContent value="players" className="flex-grow">
         <div className="h-full"> {/* Ensures the card container fills the height */}
             <Card className="flex flex-col h-full"> {/* Flex layout to allow internal items to expand */}
@@ -114,49 +163,6 @@ import { useTheme } from '@/contexts/tab-context';
                     </table>
                 </CardContent>
             </Card>
-        </div>
-      </TabsContent>
-      <TabsContent value="style" className="flex-grow">
-        <div className="h-full"> {/* Ensures the card container fills the height */}
-          <Card className="flex flex-col h-full"> {/* Flex layout to allow internal items to expand */}
-            <CardContent className="flex-grow py-4"> {/* Allows content to expand */}
-              <h3 className="text-lg font-semibold">Field</h3>
-              <Select value={selectedTheme} onValueChange={handleThemeChange} defaultValue="default">
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Select a theme" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectGroup>
-                    <SelectLabel>Field Styles</SelectLabel>
-                    <SelectItem value="default">Default</SelectItem>
-                    <SelectItem value="night">Night</SelectItem>
-                    <SelectItem value="beach">Beach</SelectItem>
-                    </SelectGroup>
-                </SelectContent>
-              </Select>
-              <h3 className="text-lg font-semibold">Formation</h3>
-              <Select value={selectedFormation} onValueChange={handleFormationChange} defaultValue="4-3-3">
-                <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Select a formation" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectGroup>
-                        <SelectLabel>Formations</SelectLabel>
-                        <SelectItem value="4-3-3">4-3-3</SelectItem>
-                        <SelectItem value="4-4-2">4-4-2</SelectItem>
-                        <SelectItem value="4-2-3-1">4-2-3-1</SelectItem>
-                        {/* Add more formations as needed */}
-                    </SelectGroup>
-                </SelectContent>
-              </Select>
-              <h3 className="text-lg font-semibold">Icon Style</h3>
-              <h3 className="text-lg font-semibold">Icon Color</h3>
-              <h3 className="text-lg font-semibold">Optional Title</h3>
-            </CardContent>
-            <CardFooter className="flex-shrink-0">
-              <a href="#" className="text-blue-500">Read More</a>
-            </CardFooter>
-          </Card>
         </div>
       </TabsContent>
       {/* Ensure each TabsContent fills the height similarly */}
