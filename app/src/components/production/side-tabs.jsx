@@ -1,10 +1,26 @@
-import React from "react"
+import React, { useMemo } from 'react';
 import { useTeam } from '@/contexts/team-context';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 const SideTabs = () => {
-  const { team, updatePlayerName, updatePlayerNumber } = useTeam();
+  const { team, updatePlayerName, updatePlayerNumber, addBackupPlayer } = useTeam();
+
+  const highestIndexes = useMemo(() => {
+    const indexes = {};
+    team.forEach(player => {
+        if (!indexes[player.positionId] || player.positionIndex > indexes[player.positionId]) {
+            indexes[player.positionId] = player.positionIndex;
+        }
+    });
+    return indexes;
+  }, [team]);
+
+    // Sort the team by positionId and then by positionIndex
+  const sortedTeam = useMemo(() => {
+    return [...team].sort((a, b) => a.positionId - b.positionId || a.positionIndex - b.positionIndex);
+  }, [team]);
+
 
   return (
     <Tabs defaultValue="account" className="flex flex-col h-full">
@@ -37,24 +53,24 @@ const SideTabs = () => {
                     <table className="min-w-full divide-y divide-gray-200">
                         <thead className="bg-gray-50">
                             <tr>
-                                <th scope="col" className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Position
                                 </th>
-                                <th scope="col" className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Number
                                 </th>
-                                <th scope="col" className="w-1/2 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Name
                                 </th>
                             </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
-                            {team.map(player => (
+                            {sortedTeam.map((player, index, array) => (
                                 <tr key={player.id}>
-                                    <td className="w-1/4 px-6 py-1 whitespace-nowrap text-xs font-medium text-gray-900">
+                                    <td className="px-6 py-1 whitespace-nowrap text-xs font-medium text-gray-900">
                                         {player.position}
                                     </td>
-                                    <td className="w-1/4 px-6 py-1 whitespace-nowrap text-xs text-gray-500">
+                                    <td className="px-6 py-1 whitespace-nowrap text-xs text-gray-500">
                                         <input
                                             id={`player-number-${player.id}`}
                                             type="number"
@@ -64,7 +80,7 @@ const SideTabs = () => {
                                             placeholder="Enter player number"
                                         />
                                     </td>
-                                    <td className="w-1/2 px-6 py-1 whitespace-nowrap text-xs text-gray-500">
+                                    <td className="px-6 py-1 whitespace-nowrap text-xs text-gray-500">
                                         <input
                                             id={`player-name-${player.id}`}
                                             type="text"
@@ -73,6 +89,15 @@ const SideTabs = () => {
                                             onChange={(e) => updatePlayerName(player.id, e.target.value)}
                                             placeholder="Enter player name"
                                         />
+                                    </td>
+                                    <td className="text-right px-6 py-1">
+                                        {player.positionIndex === highestIndexes[player.positionId] && (
+                                            <button
+                                                className="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
+                                                onClick={() => addBackupPlayer(player.positionId)}>
+                                                + Add backup
+                                            </button>
+                                        )}
                                     </td>
                                 </tr>
                             ))}
