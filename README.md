@@ -32,20 +32,14 @@ Field
 
 ## todo
 
-- Determine style
-    - Find/build player icon SVGs
-        - Dot
-        - Jersey
-    - Find/build soccer field SVGs
-
-- Build formation renderning logic
-    - Displaying correct information
-        - Player name
-        - Editable
-    - Support for 2 backup players
-        - Make changes to context json
-        - Surface it in formation component
-        - Apply styling
+- Backup rendering logic
+    - Display on field
+        - Correct positioning
+        - Different styling to differentiate backups
+    - Support for 2 backup players in side tab
+       - Not allow more than 2 backups
+       - Change button styling
+       - + and - for backups
 
 - Build formation screenshotting logic
     - Find library for converting svg to png
@@ -53,16 +47,10 @@ Field
         - Logic
         - Button in top bar component
 
-- Add misc features and sidetab controls
-    - Drag and drop player moving
-    - Field style selection
-    - Formation
-    - Icon Style
-    - Icon Color
-    - Optional Title
-
 - Finishing touches
     - Cleaning up top menu bar
+    - Overflow issue when stacking
+    - Field sizing and positioning
     - Last second CSS touchups
 
 - Host on Vercel for free
