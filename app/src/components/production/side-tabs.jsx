@@ -52,6 +52,10 @@ import { useTeam } from '@/contexts/team-context';
     return [...team].sort((a, b) => a.positionId - b.positionId || a.positionIndex - b.positionIndex);
   }, [team]);
 
+  const removePlayer = (playerId) => {
+    setTeam(currentTeam => currentTeam.filter(player => player.id !== playerId));
+};
+
 
   return (
     <Tabs defaultValue="style" className="flex flex-col h-full">
@@ -154,12 +158,40 @@ import { useTeam } from '@/contexts/team-context';
                                 </td>
                                 <td className="w-4/12 text-right px-3 py-1">
                                     {player.positionIndex === highestIndexes[player.positionId] && (
-                                        <Button
-                                            variant="secondary"
-                                            className="text-xs"
-                                            onClick={() => addBackupPlayer(player.positionId)}>
-                                            + Add backup
-                                        </Button>
+                                        <>
+                                            {player.positionIndex === 1 && (
+                                                <Button
+                                                    variant="secondary"
+                                                    className="text-xs"
+                                                    onClick={() => addBackupPlayer(player.positionId)}>
+                                                    + Add backup
+                                                </Button>
+                                            )}
+                                            {player.positionIndex === 2 && (
+                                                <>
+                                                    <Button
+                                                        variant="secondary"
+                                                        className="text-xs mr-1"
+                                                        onClick={() => addBackupPlayer(player.positionId)}>
+                                                        +
+                                                    </Button>
+                                                    <Button
+                                                        variant="destructive"
+                                                        className="text-xs bg-red-500"
+                                                        onClick={() => removePlayer(player.id)}>
+                                                        -
+                                                    </Button>
+                                                </>
+                                            )}
+                                            {player.positionIndex === 3 && (
+                                                <Button
+                                                    variant="destructive"
+                                                    className="text-xs bg-red-500"
+                                                    onClick={() => removePlayer(player.id)}>
+                                                    -
+                                                </Button>
+                                            )}
+                                        </>
                                     )}
                                 </td>
                             </tr>
