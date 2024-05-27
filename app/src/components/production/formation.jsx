@@ -30,12 +30,19 @@ export const TeamFormation = () => {
                                     {/* Main player circle */}
                                     <circle r="90" fill="blue" />
                                     {/* Player number text */}
-                                    <text y="20" fontSize="60" textAnchor="middle" fill="white">
+                                    <text y="20" fontSize="65" textAnchor="middle" fill="white">
                                         {player.number}
                                     </text>
                                 </>
                             )}
-                            <text y="205" fontSize="80" textAnchor="middle">{player.name}</text>
+                            <text 
+                              y="205" 
+                              fontSize="80" 
+                              textAnchor="middle"
+                              style={{ fontFamily: 'Inter, sans-serif', fontSize: '80px', fontWeight: '300', fill: 'white' }}
+                            > 
+                              {player.name}
+                            </text>
                         </g>
                     );
                 })}
