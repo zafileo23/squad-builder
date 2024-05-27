@@ -27,8 +27,16 @@ export const TeamProvider = ({ children }) => {
         );
     };
 
+    const updatePlayerNumber = (id, number) => {
+        setTeam(currentTeam =>
+            currentTeam.map(player =>
+                player.id === id ? { ...player, number } : player
+            )
+        );
+    };
+
     return (
-        <TeamContext.Provider value={{ team, updatePlayerName }}>
+        <TeamContext.Provider value={{ team, updatePlayerName, updatePlayerNumber }}>
             {children}
         </TeamContext.Provider>
     );

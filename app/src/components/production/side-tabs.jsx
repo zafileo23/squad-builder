@@ -4,7 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 const SideTabs = () => {
-  const { team, updatePlayerName } = useTeam();
+  const { team, updatePlayerName, updatePlayerNumber } = useTeam();
 
   return (
     <Tabs defaultValue="account" className="flex flex-col h-full">
@@ -31,31 +31,55 @@ const SideTabs = () => {
       </TabsContent>
       {/* Ensure each TabsContent fills the height similarly */}
       <TabsContent value="players" className="flex-grow">
-      <div className="h-full"> {/* Ensures the card container fills the height */}
-          <Card className="flex flex-col h-full"> {/* Flex layout to allow internal items to expand */}
-            <CardHeader className="flex-shrink-0">
-              <CardTitle>Card Title</CardTitle>
-            </CardHeader>
-            <CardContent className="flex-grow"> {/* Allows content to expand */}
-            <div className="flex flex-wrap">
-                {team.map(player => (
-                    <div key={player.id} className="player-input mb-4 w-full md:w-1/2">
-                        <label htmlFor={`player-${player.id}`} className="block text-sm font-medium text-gray-700">
-                            {player.position}:
-                        </label>
-                        <input
-                            id={`player-${player.id}`}
-                            type="text"
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            value={player.name}
-                            onChange={(e) => updatePlayerName(player.id, e.target.value)}
-                            placeholder="Enter player name"
-                        />
-                    </div>
-                ))}
-            </div>
-            </CardContent>
-          </Card>
+        <div className="h-full"> {/* Ensures the card container fills the height */}
+            <Card className="flex flex-col h-full"> {/* Flex layout to allow internal items to expand */}
+                <CardContent className="flex-grow overflow-auto py-4">
+                    <table className="min-w-full divide-y divide-gray-200">
+                        <thead className="bg-gray-50">
+                            <tr>
+                                <th scope="col" className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Position
+                                </th>
+                                <th scope="col" className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Number
+                                </th>
+                                <th scope="col" className="w-1/2 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Name
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                            {team.map(player => (
+                                <tr key={player.id}>
+                                    <td className="w-1/4 px-6 py-1 whitespace-nowrap text-xs font-medium text-gray-900">
+                                        {player.position}
+                                    </td>
+                                    <td className="w-1/4 px-6 py-1 whitespace-nowrap text-xs text-gray-500">
+                                        <input
+                                            id={`player-number-${player.id}`}
+                                            type="number"
+                                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-xs"
+                                            value={player.number}
+                                            onChange={(e) => updatePlayerNumber(player.id, e.target.value)}
+                                            placeholder="Enter player number"
+                                        />
+                                    </td>
+                                    <td className="w-1/2 px-6 py-1 whitespace-nowrap text-xs text-gray-500">
+                                        <input
+                                            id={`player-name-${player.id}`}
+                                            type="text"
+                                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-xs"
+                                            value={player.name}
+                                            onChange={(e) => updatePlayerName(player.id, e.target.value)}
+                                            placeholder="Enter player name"
+                                        />
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </CardContent>
+            </Card>
         </div>
       </TabsContent>
       <TabsContent value="lineups" className="flex-grow">
