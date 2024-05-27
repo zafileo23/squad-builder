@@ -5,11 +5,23 @@ import { useTheme } from '@/contexts/tab-context';
 
 export const TeamFormation = () => {
     const { team } = useTeam();
-    const { iconColor } = useTheme();
+    const { theme, iconColor } = useTheme(); // Access both theme and iconColor from TabContext
 
     // Function to determine the text color based on iconColor
     const getPlayerTextColor = (iconColor) => {
         if (iconColor === "#fde100" || iconColor === "#ffffff") {
+            return "black";
+        }
+        return "white";
+    };
+
+    console.log('theme', theme);
+
+    // Function to determine player name text color based on the current theme
+    const getPlayerNameTextColor = () => {
+        console.log('checking theme', theme);
+        // Check if the theme is 'light'
+        if (theme.bgColor === "#ECEEED") {
             return "black";
         }
         return "white";
@@ -46,11 +58,12 @@ export const TeamFormation = () => {
                                     </text>
                                 </>
                             )}
+                            {/* Player name text with dynamic fill based on theme */}
                             <text 
                               y="205" 
                               fontSize="80" 
                               textAnchor="middle"
-                              style={{ fontFamily: 'Inter, sans-serif', fontSize: '80px', fontWeight: '300', fill: 'white' }}
+                              style={{ fontFamily: 'Inter, sans-serif', fontSize: '80px', fontWeight: '300', fill: getPlayerNameTextColor() }}
                             > 
                               {player.name}
                             </text>
