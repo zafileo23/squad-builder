@@ -24,7 +24,6 @@ import { useTeam } from '@/contexts/team-context';
 
   const handleColorChange = (color) => {
     changeIconColor(color.hex); // update the icon color in the context
-    setPickerVisible(false); // hide picker after selection
   };
 
   const handleThemeChange = (value) => {
@@ -101,8 +100,9 @@ import { useTeam } from '@/contexts/team-context';
               </Select>
               <h3 className="text-lg font-semibold pt-4">Icon Color</h3>
               <CirclePicker 
+                className='bg-zinc-100 rounded-lg pt-4 pl-6'
                 color={iconColor}
-                colors={['#000000']}
+                colors={['#034694', '#0693E3', '#6CABDD', '#A50044', '#EF0107', '#FF8E91', '#FF6900', '#FDE100', '#9C824A', '#7BDCB5', '#00D084', '#000000', '#ABB8C3', '#FFFFFF']}
                 onChangeComplete={handleColorChange} 
               />
             </CardContent>

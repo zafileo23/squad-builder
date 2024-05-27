@@ -1,8 +1,11 @@
+import React from 'react';
 import { useTeam } from '@/contexts/team-context';
 import FieldSVG from '@/components/production/field-svg';
+import { useTheme } from '@/contexts/tab-context';
 
 export const TeamFormation = () => {
     const { team } = useTeam();
+    const { iconColor } = useTheme(); // Access the iconColor from TabContext
 
     // Define the function inside the component
     const convertPosition = (playerPosition, maxFieldDimensions) => {
@@ -28,7 +31,7 @@ export const TeamFormation = () => {
                                     {/* Outer white circle for visual emphasis */}
                                     <circle r="110" fill="white" />
                                     {/* Main player circle */}
-                                    <circle r="90" fill="blue" />
+                                    <circle r="90" fill={iconColor}/>
                                     {/* Player number text */}
                                     <text y="20" fontSize="65" textAnchor="middle" fill="white">
                                         {player.number}
