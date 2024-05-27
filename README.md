@@ -32,12 +32,6 @@ Field
 
 ## todo
 
-- Build formation screenshotting logic
-    - Find library for converting svg to png
-    - Download as PNG
-        - Logic
-        - Button in top bar component
-
 - Finishing touches
     - Cleaning up top menu bar
     - Overflow issue when stacking
