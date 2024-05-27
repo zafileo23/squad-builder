@@ -1,7 +1,7 @@
 import React from 'react';
 import TopBar from './top-bar';
-import Field from './field';
 import SideTabs from './side-tabs';
+import TeamFormation from '@/components/production/formation'
 
 const GridLayout = () => {
   return (
@@ -11,7 +11,7 @@ const GridLayout = () => {
         {/* Change flex direction based on screen size */}
         <div className="flex flex-col lg:flex-row flex-grow">
           <div className="w-full lg:w-1/2 bg-zinc-50/80 p-4 flex flex-col h-full">
-            <Field />
+            <TeamFormation />
           </div>
           <div className="w-full lg:w-1/2 bg-zinc-50/80 p-4 flex flex-col h-full">
             <SideTabs />

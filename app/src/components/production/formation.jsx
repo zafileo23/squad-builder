@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from "@/components/ui/card"
 import { useTeam } from '@/contexts/team-context';
 import FieldSVG from '@/components/production/field-svg';
 import { useTheme } from '@/contexts/tab-context';
@@ -35,7 +36,8 @@ export const TeamFormation = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto overflow-hidden">
+        <Card className="h-full">
+          <div className="max-w-4xl mx-auto overflow-hidden">
             <svg ref={svgRef} width="100%" height="auto" viewBox="0 0 2670 3690" preserveAspectRatio="xMidYMid meet">
                 <FieldSVG>
                     {team.map(player => {
@@ -64,7 +66,8 @@ export const TeamFormation = () => {
                     })}
                 </FieldSVG>
             </svg>
-        </div>
+          </div>
+        </Card>
     );
 };
 

@@ -41,6 +41,7 @@ Field
 - Host on Vercel for free
 
 - Future:
+    - Editable numbers (had this working; not sure what happened)
     - Saving session state locally
     - Editable lineup name
     - Saving lineups locally
