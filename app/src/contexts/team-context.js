@@ -59,17 +59,17 @@ export const TeamProvider = ({ children }) => {
             { positionId: 9, x: 60, y: 30, position: "Forward" }, // Striker   
         ],
         "4-1-2-1-2": [
-            { positionId: 1, x: 50, y: 90 }, // Goalkeeper
-            { positionId: 3, x: 20, y: 70 }, // Left Back
-            { positionId: 5, x: 40, y: 70 }, // LCB
-            { positionId: 4, x: 60, y: 70 }, // RCB
-            { positionId: 2, x: 80, y: 70 }, // Right Back
-            { positionId: 6, x: 40, y: 55 }, // Center Midfielder
-            { positionId: 8, x: 60, y: 55 }, // Center Midfielder
-            { positionId: 11, x: 30, y: 35 }, // Left Midfielder
-            { positionId: 10, x: 50, y: 35 }, // Attacking Midfielder
-            { positionId: 7, x: 70, y: 35 }, // Right Midfielder
-            { positionId: 9, x: 50, y: 20 }, // Striker   
+            { positionId: 1, x: 50, y: 90, position: "Goalkeeper" }, // Goalkeeper
+            { positionId: 3, x: 20, y: 70, position: "Left Back" }, // Left Back
+            { positionId: 5, x: 40, y: 70, position: "Center Back" }, // LCB
+            { positionId: 4, x: 60, y: 70, position: "Center Back" }, // RCB
+            { positionId: 2, x: 80, y: 70, position: "Right Back" }, // Right Back
+            { positionId: 6, x: 50, y: 60, position: "Center Defensive Midfielder" }, // Center Midfielder
+            { positionId: 8, x: 70, y: 45, position: "Center Midfielder" }, // Center Midfielder
+            { positionId: 11, x: 30, y: 45, position: "Left Wing" }, // Left Wing
+            { positionId: 10, x: 50, y: 35, position: "Center Midfielder" }, // Center Midfielder
+            { positionId: 9, x: 40, y: 20, position: "Forward" }, // Forward
+            { positionId: 7, x: 60, y: 20, position: "Forward" } // Forward
         ],
         "4-5-1": [
             { positionId: 1, x: 50, y: 90, position: "Goalkeeper" }, // Goalkeeper
@@ -77,12 +77,12 @@ export const TeamProvider = ({ children }) => {
             { positionId: 5, x: 40, y: 70, position: "Center Back" }, // LCB
             { positionId: 4, x: 60, y: 70, position: "Center Back" }, // RCB
             { positionId: 2, x: 80, y: 70, position: "Right Back" }, // Right Back
-            { positionId: 10, x: 30, y: 50, position: "Center Midfielder" }, // Center Midfielder
-            { positionId: 6, x: 50, y: 55, position: "Center Defensive Midfielder" }, // Center Midfielder
-            { positionId: 8, x: 70, y: 50, position: "Center Midfielder" }, // Center Midfielder
-            { positionId: 11, x: 20, y: 40, position: "Left Wing" }, // Left Wing
+            { positionId: 10, x: 35, y: 40, position: "Center Midfielder" }, // Center Midfielder
+            { positionId: 6, x: 50, y: 50, position: "Center Defensive Midfielder" }, // Center Midfielder
+            { positionId: 8, x: 65, y: 40, position: "Center Midfielder" }, // Center Midfielder
+            { positionId: 11, x: 20, y: 50, position: "Left Wing" }, // Left Wing
             { positionId: 9, x: 50, y: 30, position: "Striker" }, // Striker
-            { positionId: 7, x: 80, y: 40, position: "Right Wing" } // Right Wing
+            { positionId: 7, x: 80, y: 50, position: "Right Wing" } // Right Wing
         ],
         "3-5-2": [
             { positionId: 1, x: 50, y: 90 }, // Goalkeeper
