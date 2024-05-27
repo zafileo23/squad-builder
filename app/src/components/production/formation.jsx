@@ -23,8 +23,19 @@ export const TeamFormation = () => {
                     const position = convertPosition({ x: player.x, y: player.y }, { width: fieldWidth, height: fieldHeight });
                     return (
                         <g key={player.id} transform={`translate(${position.x}, ${position.y})`}>
-                            {player.starter && <circle r="50" fill="blue" />}
-                            {<text y="150" fontSize="80" textAnchor="middle">{player.name}</text>}
+                            {player.starter && (
+                                <>
+                                    {/* Outer white circle for visual emphasis */}
+                                    <circle r="110" fill="white" />
+                                    {/* Main player circle */}
+                                    <circle r="90" fill="blue" />
+                                    {/* Player number text */}
+                                    <text y="20" fontSize="60" textAnchor="middle" fill="white">
+                                        {player.number}
+                                    </text>
+                                </>
+                            )}
+                            <text y="205" fontSize="80" textAnchor="middle">{player.name}</text>
                         </g>
                     );
                 })}
