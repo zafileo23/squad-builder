@@ -10,10 +10,10 @@ const GridLayout = () => {
         <TopBar />
         {/* Change flex direction based on screen size */}
         <div className="flex flex-col lg:flex-row flex-grow">
-          <div className="w-full lg:w-2/3 bg-zinc-50/80 p-4 flex flex-col h-full">
+          <div className="w-full lg:w-1/2 bg-zinc-50/80 p-4 flex flex-col h-full">
             <Field />
           </div>
-          <div className="w-full lg:w-1/3 bg-zinc-50/80 p-4 flex flex-col h-full">
+          <div className="w-full lg:w-1/2 bg-zinc-50/80 p-4 flex flex-col h-full">
             <SideTabs />
           </div>
         </div>

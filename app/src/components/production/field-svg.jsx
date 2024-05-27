@@ -2,7 +2,7 @@ import React from 'react';
 
 export const FieldSVG = ({ bgColor = '#4b4', bgSecondColor = '#5c5', lineColor = '#efe', children }) => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2670 3690" className="w-1/2 h-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2670 3690" className="w-3/4 h-auto">
             <defs>
                 <pattern id="fieldPattern" width="2" patternUnits="userSpaceOnUse" patternTransform="matrix(0 205 -205 0 0 0)" height="2">
                     <rect width="1" fill={bgColor} height="2"/>

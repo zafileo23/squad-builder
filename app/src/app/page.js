@@ -10,7 +10,7 @@ export default function Home() {
       <div className="flex flex-col h-dvh min-h-screen">
         <MenuBar />
         <main className="flex flex-col items-center flex-grow h-full">
-        <  GridLayout />
+        <GridLayout />
         </main>
         <Footer />
       </div>
