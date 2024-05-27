@@ -38,7 +38,6 @@ Field
         - Different styling to differentiate backups
     - Support for 2 backup players in side tab
        - Not allow more than 2 backups
-       - Change button styling
        - + and - for backups
 
 - Build formation screenshotting logic
