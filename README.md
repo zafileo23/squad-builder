@@ -41,6 +41,9 @@ Field
 - Host on Vercel for free
 
 - Future:
+    - Responsiveness and general sizing issues
+        - Overflow issue when stacking (ie. on mobile as well)
+        - Field card width
     - Editable numbers (had this working; not sure what happened)
     - Saving session state locally
     - Editable lineup name
@@ -51,3 +54,4 @@ Field
     - Optional title
     - Additional themes
     - Connecting to soccer player database API to pull in teams
+    - Host on Vercel
