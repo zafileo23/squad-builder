@@ -14,8 +14,8 @@ const MenuBar = () => {
           {/* Hidden on small screens, visible on medium and up with space-x-8 */}
           <div className="hidden sm:flex sm:space-x-8">
             {/* Navigation links here */}
-            <a href="#" className="text-white px-3 py-2 rounded-md text-sm font-medium">Link 1</a>
-            <a href="#" className="text-white px-3 py-2 rounded-md text-sm font-medium">Link 2</a>
+            {/* <a href="#" className="text-white px-3 py-2 rounded-md text-sm font-medium">Link 1</a>
+            <a href="#" className="text-white px-3 py-2 rounded-md text-sm font-medium">Link 2</a> */}
           </div>
         </div>
       </div>
