@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <TabProvider>
       <TeamProvider>
-        <div className="flex flex-col h-dvh min-h-screen">
+        <div className="flex flex-col h-svh min-h-screen">
           <MenuBar />
-          <main className="flex flex-col items-center flex-grow h-full">
+          <main className="flex flex-col items-center h-5/6">
           <GridLayout />
           </main>
           <Footer />

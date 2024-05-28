@@ -9,7 +9,7 @@ const GridLayout = () => {
       <div className="border rounded-md flex flex-col h-full">
         <TopBar />
         {/* Change flex direction based on screen size */}
-        <div className="flex flex-col lg:flex-row flex-grow">
+        <div className="flex flex-col lg:flex-row flex-grow h-5/6">
           <div className="w-full lg:w-1/2 bg-zinc-50/80 p-4 flex flex-col h-full">
             <TeamFormation />
           </div>

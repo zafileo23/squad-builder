@@ -36,9 +36,9 @@ export const TeamFormation = () => {
     };
 
     return (
-        <Card className="h-full">
-          <div className="max-w-4xl mx-auto overflow-hidden">
-            <svg ref={svgRef} width="100%" height="auto" viewBox="0 0 2670 3690" preserveAspectRatio="xMidYMid meet">
+        <Card className="h-full relative overflow-hidden">
+          <div className="w-full h-full">
+            <svg ref={svgRef} width="100%" height="100%" viewBox="0 0 2670 3690" preserveAspectRatio="xMidYMid meet">
                 <FieldSVG>
                     {team.map(player => {
                         const position = convertPosition({ x: player.x, y: player.y }, { width: 100, height: 100 });

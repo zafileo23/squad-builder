@@ -112,7 +112,7 @@ import { useTeam } from '@/contexts/team-context';
           </Card>
         </div>
       </TabsContent>
-      <TabsContent value="players" className="flex-grow">
+      <TabsContent value="players" className="overflow-y-scroll" style={{ height: 'calc(100% - 10px)' }}>
         <div className="h-full"> {/* Ensures the card container fills the height */}
             <Card className="flex flex-col h-full"> {/* Flex layout to allow internal items to expand */}
             <CardContent className="flex-grow overflow-auto py-4">
